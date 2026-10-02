@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    overflow: hidden;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    z-index: 10; /* Keeps all text and photos above the floating hearts */
+    max-width: 400px;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.message, .sub-message {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* Styling the button */
+#showButton {
+    background-color: #ff3366;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 0 10px #ff3366;
+    transition: 0.3s;
+}
+
+#showButton:hover {
+    background-color: #ff1a47;
+    box-shadow: 0 0 20px #ff1a47;
+}
+
+/* Styling the photo (hidden by default until button is clicked) */
+#myPhoto {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #ff3366;
+    box-shadow: 0 0 15px #ff3366;
+    display: none; /* Hidden initially */
+    margin: 20px auto 10px auto; /* Centers the photo */
+}
+
+/* Styling the hidden love message */
+#loveMessage {
+    display: none; /* Hidden initially */
+    font-size: 16px;
+    color: #ff99bb;
+    margin-top: 10px;
+}
+
+/* Floating Heart Animation Styles */
+.heart {
+    position: fixed;
+    bottom: -50px;
+    color: red;
+    font-size: 30px;
+    text-shadow: 0 0 10px red;
+    animation: moveHeart 5s linear forwards;
+    will-change: transform, opacity;
+    z-index: 1; /* Stays behind text/photos */
+}
+
+@keyframes moveHeart {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
